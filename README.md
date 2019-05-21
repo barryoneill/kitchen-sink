@@ -15,4 +15,5 @@ docker run -it barryoneill/ksink bash
 Or visit the [Dockerhub page](https://cloud.docker.com/repository/docker/barryoneill/kitchen-sink/tags) to
 see which tags are available.
 
-
+The `latest` image is published automatically by dockerhub on every push to master.  
+Tagged images (e.g. `1.2.3`) are published automatically by creating a github `1.2.3` release tag.
