@@ -2,18 +2,13 @@
 
 Of limited value to anyone but me, this is a simple ubuntu image that I use when I want to try out something without polluting my local machine.
 
-See the [Dockerfile](Dockerfile) for the contents, but right now it's a very basic image that contains CLI tooling, and a few
-SDKs.  I change it a lot, but haven't been pushing to github, so I've cut out all the junk (bar Python and Java) and will
-add back stuff in over time.
+See the [Dockerfile](Dockerfile) for the contents, but right now it's a very basic image that contains CLI tooling, and a few SDKs.
 
-To use it, simply run
+To use it, run
 
 ```$bash
-docker run -it barryoneill/ksink bash
+docker run -it barryoneill/kitchen-sink
 ```
 
-Or visit the [Dockerhub page](https://cloud.docker.com/repository/docker/barryoneill/kitchen-sink/tags) to
-see which tags are available.
+Visit the [dockerhub page](https://hub.docker.com/r/barryoneill/kitchen-sink/tags) for the available tags.
 
-The `latest` image is published automatically by dockerhub on every push to master.  
-Tagged images (e.g. `1.2.3`) are published automatically by creating a github `1.2.3` release tag.
