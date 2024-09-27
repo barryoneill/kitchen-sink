@@ -1,0 +1,25 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+    - 'main'
+    tags:
+    - 'v**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build And Push 'latest'
+        run: docker buildx build --tag barryoneill/kitchen-sink:latest --platform linux/amd64,linux/arm64 .
+      - name: Build And Push tagged version
+        if: ${{ startsWith(github.ref_name, 'v') }}
+        run: docker buildx build --tag barryoneill/kitchen-sink:${{ github.event.release.tag_name }} --platform linux/amd64,linux/arm64 .
+
