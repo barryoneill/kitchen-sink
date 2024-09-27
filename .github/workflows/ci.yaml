@@ -8,7 +8,7 @@ on:
     - 'v**'
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,6 +19,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Build And Push 'latest'
         run: docker buildx build --tag barryoneill/kitchen-sink:latest --platform linux/amd64,linux/arm64 .
+      # rather that have a separate CI workflow building on tags, take advantage of the same build
       - name: Build And Push tagged version
         if: ${{ startsWith(github.ref_name, 'v') }}
         run: docker buildx build --tag barryoneill/kitchen-sink:${{ github.event.release.tag_name }} --platform linux/amd64,linux/arm64 .
