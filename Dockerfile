@@ -23,7 +23,7 @@ RUN install -m 0755 -d /etc/apt/keyrings  \
     && apt-get update && apt-get install -y --no-install-recommends \
     # core
     build-essential gnupg make git curl wget gzip zip unzip vim \
-    # useful
+    # useful tools
     tmux htop jq tree ncdu ssh tig ngrok \
     # python
     python3 python3-pip python3-tz python3-boto3 awscli \
@@ -33,6 +33,8 @@ RUN install -m 0755 -d /etc/apt/keyrings  \
     java-21-amazon-corretto-jdk \
     # node
     nodejs npm \
+    # miscellaneous clients \
+    redis-tools \
     # now all the custom setup / non-apt installs
     # set python as default
     && update-alternatives --install /usr/bin/python python /usr/bin/python3 1 \
