@@ -9,9 +9,9 @@ run: build
 	docker run -it $(IMAGE):latest bash
 
 publish: guard-VERSION build
-	docker tag $(IMAGE):latest $(IMAGE):$(RELEASE)
+	docker tag $(IMAGE):latest $(IMAGE):$(VERSION)
 	docker push $(IMAGE):latest
-	docker push $(IMAGE):$(RELEASE)
+	docker push $(IMAGE):$(VERSION)
 
 
 # thank you to https://stackoverflow.com/a/7367903 for a much more flexible solution than ifndef
